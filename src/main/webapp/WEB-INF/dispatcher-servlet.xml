@@ -19,7 +19,8 @@
         <property name="order" value="1" />
     </bean>
 
+
     <!-- 컨트롤러 클래스 지정 -->
-    <context:component-scan base-package="siestageek.spring.mvc" />
+    <context:component-scan base-package="ulim.spring.mvc" />
 
 </beans>

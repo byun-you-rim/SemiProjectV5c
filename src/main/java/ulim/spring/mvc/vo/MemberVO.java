@@ -1,4 +1,4 @@
-package siestageek.spring.mvc.vo;
+package ulim.spring.mvc.vo;
 
 // 회원정보 저장 클래스
 public class MemberVO {
