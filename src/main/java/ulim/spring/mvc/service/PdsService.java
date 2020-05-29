@@ -21,7 +21,7 @@ public class PdsService {
     public String newPds(PdsVO pd) {
         String result = "데이터 입력 실패!!";
 
-            pd.setFname("abc123xyz.zip");
+            //pd.setFname("abc123xyz.zip");
             pd.setFsize("1234");
             pd.setFdown("9876");
             pd.setFtype("zip");
