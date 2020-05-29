@@ -22,9 +22,9 @@ public class PdsService {
         String result = "데이터 입력 실패!!";
 
             //pd.setFname("abc123xyz.zip");
-            pd.setFsize("1234");
-            pd.setFdown("9876");
-            pd.setFtype("zip");
+            //pd.setFsize("1234");
+            pd.setFdown("0");
+            //pd.setFtype("zip");
 
         if (pdao.insertPds(pd))
             result = "데이터입력 성공!!";
