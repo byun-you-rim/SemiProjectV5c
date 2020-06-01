@@ -19,6 +19,7 @@ public class BoardDAO {
     @Value("#{jdbc['insertBoardSQL']}") private String insertBoardSQL;
     @Value("#{jdbc['selectBoardSQL']}") private String selectBoardSQL;
     @Value("#{jdbc['selectOneBoardSQL']}") private String selectOneBoardSQL;
+    @Value("#{jdbc['countBoardSQL']}") private String countBoardSQL;
 
     @Autowired
     public BoardDAO(JdbcTemplate jdbcTemplate) {
@@ -49,8 +50,10 @@ public class BoardDAO {
     // 골라서 동적배열에 담아 반환함
     // 스프링에서는 RowMapper라는 클래스를 이용해서
     // select문의 결과를 처리할 수 있음
-    public List<BoardVO> selectBoard() {
+    public List<BoardVO> selectBoard(int snum) {
         // String sql = "select bno,title,userid,regdate,thumbup,views from board order by bno desc";
+
+        Object[] params = new Object[] { snum };
 
         RowMapper<BoardVO> mapper = new BoardRowMapper();
         // query 메서드를 통해 결과값을 가져올때
@@ -63,13 +66,14 @@ public class BoardDAO {
         // 개발자가 작성하는 RowMapper 클래스는
         // RowMapper 인터페이스를 구현해서 생성해야 함
 
-        return jdbcTemplate.query(selectBoardSQL, mapper);
+        return jdbcTemplate.query(selectBoardSQL, mapper, params);
     }
 
     // 글번호로 선택한 게시물에 대해 모든 컬럼을 조회해서
     // BoardVO 객체에 저장하고 반환함
     public BoardVO selectOneBoard(String bno) {
         // String sql = "select * from board where bno = ?";
+
 
         Object[] params = new Object[] { bno };
 
@@ -83,6 +87,13 @@ public class BoardDAO {
                       selectOneBoardSQL, mapper, params);
 
         return bvo;
+    }
+
+    // 총 게시물 수 알아내기
+    public int selectCountBoard() {
+
+        int bdcnt = jdbcTemplate.queryForObject(countBoardSQL, Integer.class);
+        return bdcnt;
     }
 
     // selectBoard의 RowMapper 내부 클래스
