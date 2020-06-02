@@ -43,3 +43,13 @@ $('#updbd').on('click', function () {
     location.href =
         '/board/update.do?bno=${param.bno}';
 }); // 수정하기
+
+$('#replybtn').on('click',function () {
+    if($('#reply').val()==""){
+        alert('댓글을 작성하세요');
+    } else {
+
+        $('#replyfrm').attr('action','/reply/bdrpywrite');
+        $('#replyfrm').submit();
+    }
+}); // 댓글쓰기

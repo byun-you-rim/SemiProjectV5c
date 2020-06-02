@@ -140,19 +140,21 @@
         </div><!-- 댓글 -->
 
         <div class="row margin1050">
-            <form class="card card-body bg-light"
-                style="margin: 30px 0;">
+            <form class="card card-body bg-light" method="post"
+                style="margin: 30px 0;" name="replyfrm" id="replyfrm">
                 <div class="form-group row">
                     <label style="margin:auto">로그인하세요</label>
 
-                    <textarea id="comment" rows="10"
+                    <textarea id="reply" rows="10" name="reply"
                         class="form-control col-7"></textarea>
 
-                    <button type="button" id="bdcmt"
+                    <button type="button" id="replybtn"
                         class="btn btn-dark" style="margin:auto">
                         <i class="fa fa-commenting"></i>
                         댓글쓰기</button>
                 </div>
+                <input type="hidden" name="userid" value="${param.uid}"/>
+                <input type="hidden" name="bno" value="${param.bno}"/>
             </form>
         </div><!-- 댓글쓰기 -->
 
