@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ulim.spring.mvc.service.BDReplyService;
 import ulim.spring.mvc.service.BoardService;
 import ulim.spring.mvc.vo.BoardVO;
+import ulim.spring.mvc.vo.ReplyVO;
 
 import java.util.ArrayList;
 
@@ -14,10 +16,13 @@ import java.util.ArrayList;
 public class BoardController {
 
     private BoardService bsrv;
+    private BDReplyService brsrv;
 
     @Autowired
-    public BoardController(BoardService bsrv) {
+    // 두개의 멤버변수를 생성자를 통해 DI로 받음
+    public BoardController(BoardService bsrv, BDReplyService brsrv) {
         this.bsrv = bsrv;
+        this.brsrv = brsrv;
     }
 
     // 목록보기
@@ -73,6 +78,10 @@ public class BoardController {
         BoardVO b = bsrv.showOneBoard(bno);
         mv.addObject("b", b);
 
+
+// 본문글에 대한 댓글과 대댓글
+        ArrayList<ReplyVO> r = brsrv.showReply(bno);
+        mv.addObject("r", r);
         return mv;
     }
 

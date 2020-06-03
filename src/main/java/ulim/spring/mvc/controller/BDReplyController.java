@@ -26,4 +26,13 @@ public class BDReplyController {
 
         return "redirect:/board/view.do?bno="+rvo.getBno();
     }
+
+//    대댓글쓰기 완료
+    @PostMapping (value = "/reply/bdcmtwrite")
+    public String bdcmtwrite(ReplyVO rvo) {
+
+        brsrv.makeComment(rvo);
+
+        return "redirect:/board/view.do?bno="+rvo.getBno();
+    }
 }

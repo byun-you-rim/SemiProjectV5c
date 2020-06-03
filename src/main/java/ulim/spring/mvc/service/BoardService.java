@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ulim.spring.mvc.dao.BoardDAO;
 import ulim.spring.mvc.vo.BoardVO;
+import ulim.spring.mvc.vo.ReplyVO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service("bsrv")
 public class BoardService {
@@ -47,4 +49,9 @@ public class BoardService {
     public void removeBoard(String bno) {
         bdao.deleteBoard(bno);
     }
+
+
+
+    // 댓글과 대댓글 가져오기
+
 }
