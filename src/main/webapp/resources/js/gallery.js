@@ -1,4 +1,4 @@
-$('#pdregbtn').on('click', function () {
+$('#galokbtn').on('click', function () {
     if ($('#title').val() == '') {
         alert('제목을 입력하세요!!');
         $('#title').focus();
@@ -12,7 +12,7 @@ $('#pdregbtn').on('click', function () {
         $('#contents').focus();
 
     } else {
-        $('#bdfrm').submit();
+        $('#galleryfrm').submit();
     }
 }); // 새글등록
 
