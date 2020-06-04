@@ -1,4 +1,4 @@
-$// 회원가입버튼
+// 회원가입버튼
 $('#joinbtn').on('click', function () {
     location.href = 'join/agree.do';
 });
@@ -13,4 +13,9 @@ $('#loginbtn').on('click', function () {
         $('#loginfrm').attr('action','/login/login');
         $('#loginfrm').submit();
     }
+});
+
+// 로그아웃하기
+$("#logoutbtn").on('click',function () {
+    location.href = 'login/logout';
 });
