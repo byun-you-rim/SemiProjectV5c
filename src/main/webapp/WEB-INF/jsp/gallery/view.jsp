@@ -1,6 +1,9 @@
 <%@ page  pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<c:set var="imgURL" value="http://127.0.0.1/cdn/"/>
     <!-- 메인영역 시작 -->
     <div id="main">
         <div class="margin30">
@@ -37,7 +40,7 @@
                 <tr><th colspan="2"
                     style="border-bottom: 3px solid black;
                            background: #dff0f8">
-                    <h3>예쁜 고양이들~</h3>
+                    <h3>"${g.title}"</h3>
                 </th></tr>
                 <tr style="background: #ccff99">
                     <td class="text-left">종로 고양이 맘</td>
@@ -45,12 +48,17 @@
                 <tr style="background: #ffffcc">
                     <td colspan="2" class="text-left"
                         style="border-bottom: 3px solid black;">
-                        <img src="/resources/img/gendo.png" class="img-fluid"><br>
-                        <img src="/resources/img/kitty.png" class="img-fluid"><br>
-                        <img src="/resources/img/sujipopo.jpg" class="img-fluid"><br>
+                        <img src="${imgURL}${g.fname1}" class="img-fluid"><br>
+                        <c:if test="${not empty g.fname2}">
+                        <img src="${imgURL}${g.fname2}" class="img-fluid"><br></c:if>
+                        <c:if test="${not empty g.fname3}">
+                        <img src="${imgURL}${g.fname3}" class="img-fluid"><br></c:if>
                     </td></tr>
-                <tr><td class="text-left">이미지1</td><td>abcxyz.jpg (123KB)</td></tr>
-                <tr><td class="text-left">이미지2</td><td>123987.png (1.3MB)</td></tr>
+                <tr><td class="text-left">이미지1</td><td>${g.fname1} (123KB)</td></tr>
+                        <c:if test="${not empty g.fname2}">
+                <tr><td class="text-left">이미지2</td><td>${g.fname2} (123KB)</td></tr></c:if>
+                        <c:if test="${not empty g.fname3}">
+                <tr><td class="text-left">이미지3</td><td>${g.fname3} (123KB)</td></tr></c:if>
             </table>
         </div><!-- 본문 -->
 

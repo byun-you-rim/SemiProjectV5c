@@ -56,16 +56,24 @@ public class GalleryController {
 
         mv.setViewName("layout/layout");
         mv.addObject("action","../gallery/list.jsp");
+        // 뷰로 넘길데이터를 rorcpdp ekadma
+
+        mv.addObject("glist",gsrv.showGallery());
+
         return mv;
     }
 
     @RequestMapping(value = "gallery/view")
-    public ModelAndView view() {
+    public ModelAndView view(String gno) {
 
         ModelAndView mv = new ModelAndView();
 
         mv.setViewName("layout/layout");
-        mv.addObject("action","../gallery/list.jsp");
+        mv.addObject("action","../gallery/view.jsp");
+
+        mv.addObject("g", gsrv.showOneGallery(gno));
+
         return mv;
     }
+
 };

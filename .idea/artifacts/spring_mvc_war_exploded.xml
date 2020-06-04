@@ -37,6 +37,10 @@
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-request-jsp:1.0.7" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.4" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.2" />
+          <element id="library" level="project" name="Maven: org.imgscalr:imgscalr-lib:4.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.2" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.30" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.13.0" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.13.0" />

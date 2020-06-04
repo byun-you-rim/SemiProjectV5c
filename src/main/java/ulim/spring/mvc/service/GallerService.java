@@ -53,4 +53,14 @@ public class GallerService {
 
 
     }
+
+    // 갤러리 목록표시
+    public Object showGallery() {
+        return (ArrayList<GallerVO>)gdao.selectGallery();
+    }
+
+    // 갤러리 본문출력
+    public GallerVO showOneGallery(String gno) {
+        return gdao.selectOneGallery(gno);
+    }
 };
